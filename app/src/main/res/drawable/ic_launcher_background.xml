@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:aapt="http://schemas.android.com/aapt"
+    android:width="108dp"
+    android:height="108dp"
+    android:viewportWidth="108"
+    android:viewportHeight="108">
+    <!-- Classic Apple iOS Cobalt-to-Azure Squircle Background -->
+    <path android:pathData="M0,0h108v108h-108z">
+        <aapt:attr name="android:fillColor">
+            <gradient
+                android:startX="18"
+                android:startY="10"
+                android:endX="90"
+                android:endY="98"
+                android:type="linear">
+                <item android:offset="0.0" android:color="#FF0A84FF" />
+                <item android:offset="0.55" android:color="#FF0066CC" />
+                <item android:offset="1.0" android:color="#FF004099" />
+            </gradient>
+        </aapt:attr>
+    </path>
+    <!-- Subtle inner highlight grid ring (Apple icon geometry) -->
+    <path
+        android:fillColor="#00000000"
+        android:strokeColor="#1FFFFFFF"
+        android:strokeWidth="0.75"
+        android:pathData="M54,54m-36,0a36,36 0,1 1,72 0a36,36 0,1 1,-72 0" />
+</vector>
