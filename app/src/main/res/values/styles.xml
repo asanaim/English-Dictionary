@@ -1,18 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!-- Main Apple Cupertino Light/Dark Adaptive Theme -->
     <style name="Theme.ShunnoDictionary" parent="android:Theme.Material.Light.NoActionBar">
         <item name="android:statusBarColor">#FFF2F2F7</item>
         <item name="android:navigationBarColor">#FFF2F2F7</item>
         <item name="android:windowLightStatusBar">true</item>
     </style>
 
-    <!--
-      CRITICAL FIX FOR E-READERS & BROWSERS:
-      1. windowIsTranslucent = true -> Keeps the reader/browser activity visible underneath
-      2. windowBackground = @android:color/transparent -> No solid background screen
-      3. backgroundDimEnabled = false -> Prevents Android from darkening the reader screen!
-    -->
     <style name="Theme.ShunnoDictionary.ReaderPopup" parent="android:Theme.Material.Light.Dialog.NoActionBar">
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowIsTranslucent">true</item>

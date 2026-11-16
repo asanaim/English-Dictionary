@@ -11,7 +11,6 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.ShunnoDictionary">
 
-        <!-- Main Apple-inspired Dictionary App -->
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -25,10 +24,7 @@
             </intent-filter>
         </activity>
 
-        <!--
-          Pop-up Lookup Mode for E-Readers (ReadEra, Moon+ Reader, Kindle, Kobo) & Browsers (Chrome, Firefox):
-          Uses Theme.ShunnoDictionary.ReaderPopup so the reader stays 100% visible & un-dimmed behind the card!
-        -->
+        <!-- Zero-Dim Transparent Reader Pop-up (Keeps e-reader/browser 100% bright and visible behind card) -->
         <activity
             android:name=".ReaderPopupActivity"
             android:label="Shunno Dictionary"
@@ -36,19 +32,16 @@
             android:excludeFromRecents="true"
             android:taskAffinity=""
             android:theme="@style/Theme.ShunnoDictionary.ReaderPopup">
-            <!-- Triggered when selecting text in any Browser or E-Reader ("Shunno Dictionary" in context menu) -->
             <intent-filter>
                 <action android:name="android.intent.action.PROCESS_TEXT" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <data android:mimeType="text/plain" />
             </intent-filter>
-            <!-- Triggered when sharing a word from any E-Reader -->
             <intent-filter>
                 <action android:name="android.intent.action.SEND" />
                 <category android:name="android.intent.category.DEFAULT" />
                 <data android:mimeType="text/plain" />
             </intent-filter>
-            <!-- Triggered by Colordict / GoldenDict / Moon+ Reader dictionary intent -->
             <intent-filter>
                 <action android:name="colordict.intent.action.SEARCH" />
                 <category android:name="android.intent.category.DEFAULT" />
