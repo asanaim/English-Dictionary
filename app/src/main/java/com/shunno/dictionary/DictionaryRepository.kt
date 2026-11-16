@@ -485,7 +485,7 @@ class DictionaryRepository(context: Context) : SQLiteOpenHelper(context, "shunno
         return null
     }
 
-    fn getAllNotes(): List<NoteItem> {
+    fun getAllNotes(): List<NoteItem> {
         val list = mutableListOf<NoteItem>()
         readableDatabase.rawQuery("SELECT word, content, category, timestamp FROM notes ORDER BY timestamp DESC", null).use { c ->
             while (c.moveToNext()) {
