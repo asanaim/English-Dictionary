@@ -1,1 +1,2 @@
 -keep class com.shunno.dictionary.** { *; }
+-dontwarn com.shunno.dictionary.**

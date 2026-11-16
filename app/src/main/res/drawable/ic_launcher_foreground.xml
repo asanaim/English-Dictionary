@@ -4,28 +4,21 @@
     android:height="108dp"
     android:viewportWidth="108"
     android:viewportHeight="108">
-    <!-- "Shunno" (Zero / Void / Enso Circle of Clarity) Outer Loupe Ring -->
     <path
         android:fillColor="#00000000"
         android:strokeColor="#FFFFFFFF"
         android:strokeWidth="5.2"
         android:strokeLineCap="round"
         android:pathData="M54,26 A28,28 0 1,1 29.8,68.0" />
-
-    <!-- Subtle Accent Dot Completing the Shunno Arc -->
     <path
         android:fillColor="#FF64D2FF"
         android:pathData="M30.5,38.5m-3.2,0a3.2,3.2 0,1 1,6.4 0a3.2,3.2 0,1 1,-6.4 0" />
-
-    <!-- Classic Apple Dictionary Open Book Pages Inside the Shunno Ring -->
     <path
         android:fillColor="#F5FFFFFF"
         android:pathData="M37,42 C42,40.5 48,41.5 52.2,44.2 L52.2,66.8 C48,64.2 42,63.2 37,64.5 Z" />
     <path
         android:fillColor="#D9FFFFFF"
         android:pathData="M71,42 C66,40.5 60,41.5 55.8,44.2 L55.8,66.8 C60,64.2 66,63.2 71,64.5 Z" />
-
-    <!-- Minimalist Bookmark Ribbon -->
     <path
         android:fillColor="#FFFF9F0A"
         android:pathData="M61,41.5 L65,41.5 L65,53 L63,51.2 L61,53 Z" />
