@@ -170,7 +170,7 @@ class ReaderPopupActivity : ComponentActivity() {
                                 )
                                 Spacer(modifier = Modifier.height(6.dp))
                                 Text(
-                                    text = "No definition found for this selection.",
+                                    text = "No offline or Wiktionary definition found for this selection.",
                                     fontSize = 14.sp,
                                     color = Color(0xFF8E8E93)
                                 )
