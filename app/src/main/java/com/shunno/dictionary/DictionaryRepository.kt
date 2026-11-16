@@ -44,7 +44,7 @@ data class BookmarkItem(
     val timestamp: Long
 )
 
-class DictionaryRepository(context: Context) : SQLiteOpenHelper(context, "shunno_full.db", null, 2) {
+class DictionaryRepository(context: Context) : SQLiteOpenHelper(context, "shunno_full_600k.db", null, 3) {
 
     override fun onCreate(db: SQLiteDatabase) {
         db.execSQL("CREATE TABLE IF NOT EXISTS cache (word TEXT PRIMARY KEY COLLATE NOCASE, json TEXT, timestamp INTEGER)")
@@ -84,34 +84,13 @@ class DictionaryRepository(context: Context) : SQLiteOpenHelper(context, "shunno
                 seeAlso = listOf("altruistic", "philanthropic", "magnanimous")
             ),
             WordEntry(
-                word = "candid",
-                phonetic = "/ˈkæn.dɪd/",
+                word = "serendipity",
+                phonetic = "/ˌsɛɹ.ənˈdɪp.ɪ.ti/",
                 senses = listOf(
-                    SenseItem("adjective", "Truthful and straightforward; frank and sincere.", "She gave a candid interview about the challenges of leadership.", listOf("frank", "outspoken", "forthright"), listOf("guarded", "secretive"))
+                    SenseItem("noun", "The occurrence and development of events by chance in a happy or beneficial way.", "Penicillin was one of science's greatest moments of serendipity.", listOf("fluke", "blessing", "fortune", "providence"), listOf("misfortune", "calamity"))
                 ),
-                etymology = "From Latin candidus ('shining white, clear, sincere').",
-                inflections = listOf("more candid", "most candid", "candidly"),
-                seeAlso = listOf("frank", "sincere", "impartial")
-            ),
-            WordEntry(
-                word = "diligent",
-                phonetic = "/ˈdɪl.ɪ.dʒənt/",
-                senses = listOf(
-                    SenseItem("adjective", "Having or showing care and conscientiousness in one's work or duties.", "After diligent research, the team discovered the root cause.", listOf("industrious", "assiduous", "conscientious"), listOf("negligent", "lazy"))
-                ),
-                etymology = "From Latin dīligēns ('careful, attentive'), from dīligere ('to value, esteem').",
-                inflections = listOf("more diligent", "most diligent", "diligently"),
-                seeAlso = listOf("assiduous", "meticulous", "sedulous")
-            ),
-            WordEntry(
-                word = "eloquent",
-                phonetic = "/ˈɛl.ə.kwənt/",
-                senses = listOf(
-                    SenseItem("adjective", "Fluent, forceful, and persuasive in speaking or writing.", "An eloquent speech that moved the entire assembly.", listOf("articulate", "expressive", "silver-tongued"), listOf("inarticulate"))
-                ),
-                etymology = "From Latin ēloquēns, present participle of ēloquī ('to speak out').",
-                inflections = listOf("more eloquent", "most eloquent", "eloquently"),
-                seeAlso = listOf("articulate", "rhetoric", "fluent")
+                etymology = "Coined by Horace Walpole in 1754 from the Persian fairy tale 'The Three Princes of Serendip'.",
+                seeAlso = listOf("fortuitous", "providence", "synchronicity")
             ),
             WordEntry(
                 word = "ephemeral",
@@ -124,143 +103,14 @@ class DictionaryRepository(context: Context) : SQLiteOpenHelper(context, "shunno
                 seeAlso = listOf("transient", "evanescent", "fleeting")
             ),
             WordEntry(
-                word = "fortitude",
-                phonetic = "/ˈfɔː.tɪ.tjuːd/",
+                word = "eloquent",
+                phonetic = "/ˈɛl.ə.kwənt/",
                 senses = listOf(
-                    SenseItem("noun", "Courage and mental strength in facing pain, danger, or adversity.", "She endured the long recovery with remarkable fortitude.", listOf("courage", "grit", "endurance", "resilience"), listOf("cowardice", "timidity"))
+                    SenseItem("adjective", "Fluent, forceful, and persuasive in speaking or writing.", "An eloquent speech that moved the entire assembly.", listOf("articulate", "expressive", "silver-tongued"), listOf("inarticulate"))
                 ),
-                etymology = "From Latin fortitūdō ('strength, bravery'), from fortis ('strong').",
-                seeAlso = listOf("resilience", "mettle", "perseverance")
-            ),
-            WordEntry(
-                word = "gregarious",
-                phonetic = "/ɡɹɪˈɡɛə.ɹi.əs/",
-                senses = listOf(
-                    SenseItem("adjective", "Fond of company; sociable and outgoing.", "He was a popular and gregarious host.", listOf("sociable", "convivial", "extroverted"), listOf("reclusive", "unsociable"))
-                ),
-                etymology = "From Latin gregārius ('belonging to a flock'), from grex ('flock, herd').",
-                seeAlso = listOf("convivial", "affable", "amiable")
-            ),
-            WordEntry(
-                word = "harbinger",
-                phonetic = "/ˈhɑː.bɪn.dʒə/",
-                senses = listOf(
-                    SenseItem("noun", "A person or thing that announces or signals the approach of another; a forerunner.", "The first robin is a harbinger of spring.", listOf("herald", "forerunner", "precursor", "omen"))
-                ),
-                etymology = "From Middle English herbergere ('one who provides lodging ahead of an army').",
-                seeAlso = listOf("precursor", "herald", "portent")
-            ),
-            WordEntry(
-                word = "inevitable",
-                phonetic = "/ɪnˈɛv.ɪ.tə.bəl/",
-                senses = listOf(
-                    SenseItem("adjective", "Certain to happen; unavoidable.", "Technological change is inevitable in a connected world.", listOf("unavoidable", "inescapable", "inexorable"), listOf("avoidable", "uncertain"))
-                ),
-                etymology = "From Latin inevitābilis ('unavoidable'), from in- ('not') + evitābilis ('avoidable').",
-                seeAlso = listOf("inexorable", "imminent", "destined")
-            ),
-            WordEntry(
-                word = "juxtapose",
-                phonetic = "/ˌdʒʌk.stəˈpəʊz/",
-                senses = listOf(
-                    SenseItem("verb", "To place or deal with close together for contrasting effect.", "The exhibition juxtaposes classical oil paintings with digital art.", listOf("contrast", "compare", "collocate"))
-                ),
-                etymology = "From French juxtaposer, from Latin iuxtā ('next to') + French poser ('to place').",
-                inflections = listOf("juxtaposes", "juxtaposing", "juxtaposed", "juxtaposition"),
-                seeAlso = listOf("contrast", "dichotomy")
-            ),
-            WordEntry(
-                word = "kinetic",
-                phonetic = "/kɪˈnɛt.ɪk/",
-                senses = listOf(
-                    SenseItem("adjective", "Relating to or resulting from motion.", "Wind turbines convert kinetic energy into electrical power.", listOf("dynamic", "active", "motile"), listOf("static", "potential"))
-                ),
-                etymology = "From Greek kinētikos ('of motion'), from kinein ('to move').",
-                seeAlso = listOf("dynamic", "velocity", "momentum")
-            ),
-            WordEntry(
-                word = "lucid",
-                phonetic = "/ˈluː.sɪd/",
-                senses = listOf(
-                    SenseItem("adjective", "Expressed clearly; easy to understand; bright or luminous.", "A lucid explanation of complex legal principles.", listOf("clear", "intelligible", "cogent", "coherent"), listOf("confusing", "obscure"))
-                ),
-                etymology = "From Latin lūcidus ('light, bright, clear'), from lūx ('light').",
-                inflections = listOf("more lucid", "most lucid", "lucidly", "lucidity"),
-                seeAlso = listOf("pellucid", "cogent", "perspicuous")
-            ),
-            WordEntry(
-                word = "meticulous",
-                phonetic = "/məˈtɪk.jʊ.ləs/",
-                senses = listOf(
-                    SenseItem("adjective", "Showing great attention to detail; very careful and precise.", "He kept meticulous notes on every experiment.", listOf("scrupulous", "punctilious", "thorough", "exacting"), listOf("careless", "sloppy"))
-                ),
-                etymology = "From Latin meticulōsus ('fearful, timid, careful'), from metus ('fear').",
-                inflections = listOf("more meticulous", "most meticulous", "meticulously"),
-                seeAlso = listOf("fastidious", "scrupulous", "thorough")
-            ),
-            WordEntry(
-                word = "nostalgia",
-                phonetic = "/nɒˈstæl.dʒə/",
-                senses = listOf(
-                    SenseItem("noun", "A sentimental longing or wistful affection for the past.", "Listening to old vinyl records filled him with nostalgia.", listOf("wistfulness", "longing", "reminiscence"))
-                ),
-                etymology = "From Greek nostos ('return home') + algos ('pain, longing').",
-                seeAlso = listOf("reminiscence", "melancholy", "yearning")
-            ),
-            WordEntry(
-                word = "obsolete",
-                phonetic = "/ˈɒb.sə.liːt/",
-                senses = listOf(
-                    SenseItem("adjective", "No longer produced or used; out of date.", "Floppy disks have become completely obsolete.", listOf("outdated", "outmoded", "archaic", "defunct"), listOf("modern", "current", "contemporary"))
-                ),
-                etymology = "From Latin obsolētus ('worn out, grown old').",
-                seeAlso = listOf("archaic", "anachronistic", "antiquated")
-            ),
-            WordEntry(
-                word = "paradigm",
-                phonetic = "/ˈpæɹ.ə.daɪm/",
-                senses = listOf(
-                    SenseItem("noun", "A typical example, pattern, or model of something; a philosophical and theoretical framework.", "A new paradigm in minimalist software design.", listOf("model", "archetype", "exemplar", "standard"))
-                ),
-                etymology = "From Greek parádeigma ('pattern, example'), from paradeiknynai ('to show side by side').",
-                seeAlso = listOf("archetype", "prototype", "epitome")
-            ),
-            WordEntry(
-                word = "quintessential",
-                phonetic = "/ˌkwɪn.tɪˈsɛn.ʃəl/",
-                senses = listOf(
-                    SenseItem("adjective", "Representing the most perfect or typical example of a quality or class.", "She is the quintessential professional.", listOf("archetypal", "classic", "definitive", "ideal"))
-                ),
-                etymology = "From medieval Latin quīnta essentia ('fifth essence').",
-                seeAlso = listOf("epitome", "paragon", "exemplar")
-            ),
-            WordEntry(
-                word = "resilience",
-                phonetic = "/ɹɪˈzɪl.jəns/",
-                senses = listOf(
-                    SenseItem("noun", "The capacity to recover quickly from difficulties; toughness and elasticity.", "The remarkable resilience of coastal ecosystems.", listOf("toughness", "adaptability", "fortitude", "grit"), listOf("fragility", "vulnerability"))
-                ),
-                etymology = "From Latin resiliēns, present participle of resilīre ('to rebound, recoil').",
-                seeAlso = listOf("fortitude", "tenacity", "endurance")
-            ),
-            WordEntry(
-                word = "serendipity",
-                phonetic = "/ˌsɛɹ.ənˈdɪp.ɪ.ti/",
-                senses = listOf(
-                    SenseItem("noun", "The occurrence and development of events by chance in a happy or beneficial way.", "Penicillin was one of science's greatest moments of serendipity.", listOf("fluke", "blessing", "fortune", "providence"), listOf("misfortune", "calamity"))
-                ),
-                etymology = "Coined by Horace Walpole in 1754 from the Persian fairy tale 'The Three Princes of Serendip'.",
-                seeAlso = listOf("fortuitous", "providence", "synchronicity")
-            ),
-            WordEntry(
-                word = "tenacious",
-                phonetic = "/təˈneɪ.ʃəs/",
-                senses = listOf(
-                    SenseItem("adjective", "Tending to keep a firm hold of something; persistent and determined.", "A tenacious investigator who refused to drop the case.", listOf("persistent", "resolute", "dogged", "steadfast"), listOf("irresolute", "yielding"))
-                ),
-                etymology = "From Latin tenāx ('holding fast'), from tenēre ('to hold').",
-                inflections = listOf("more tenacious", "most tenacious", "tenaciously", "tenacity"),
-                seeAlso = listOf("steadfast", "persevering", "resolute")
+                etymology = "From Latin ēloquēns, present participle of ēloquī ('to speak out').",
+                inflections = listOf("more eloquent", "most eloquent", "eloquently"),
+                seeAlso = listOf("articulate", "rhetoric", "fluent")
             ),
             WordEntry(
                 word = "ubiquitous",
@@ -273,33 +123,32 @@ class DictionaryRepository(context: Context) : SQLiteOpenHelper(context, "shunno
                 seeAlso = listOf("pervasive", "omnipresent", "universal")
             ),
             WordEntry(
-                word = "vivid",
-                phonetic = "/ˈvɪv.ɪd/",
+                word = "resilience",
+                phonetic = "/ɹɪˈzɪl.jəns/",
                 senses = listOf(
-                    SenseItem("adjective", "Producing powerful feelings or strong, clear images in the mind.", "I still have vivid memories of that summer.", listOf("graphic", "striking", "bright", "distinct"), listOf("vague", "dull", "faint"))
+                    SenseItem("noun", "The capacity to recover quickly from difficulties; toughness and elasticity.", "The remarkable resilience of coastal ecosystems.", listOf("toughness", "adaptability", "fortitude", "grit"), listOf("fragility", "vulnerability"))
                 ),
-                etymology = "From Latin vīvidus ('spirited, lively'), from vīvus ('alive').",
-                inflections = listOf("more vivid", "most vivid", "vividly"),
-                seeAlso = listOf("lucid", "vibrant", "graphic")
+                etymology = "From Latin resiliēns, present participle of resilīre ('to rebound, recoil').",
+                seeAlso = listOf("fortitude", "tenacity", "endurance")
             ),
             WordEntry(
-                word = "wanderlust",
-                phonetic = "/ˈwɒn.də.lʌst/",
+                word = "lucid",
+                phonetic = "/ˈluː.sɪd/",
                 senses = listOf(
-                    SenseItem("noun", "A strong desire to travel and explore the world.", "Driven by wanderlust, she backpacked across four continents.", listOf("itchy feet", "restlessness"))
+                    SenseItem("adjective", "Expressed clearly; easy to understand; bright or luminous.", "A lucid explanation of complex legal principles.", listOf("clear", "intelligible", "cogent", "coherent"), listOf("confusing", "obscure"))
                 ),
-                etymology = "Borrowed from German Wanderlust, from wandern ('to hike, roam') + Lust ('desire').",
-                seeAlso = listOf("nomadic", "wayfarer", "sojourn")
+                etymology = "From Latin lūcidus ('light, bright, clear'), from lūx ('light').",
+                inflections = listOf("more lucid", "most lucid", "lucidly", "lucidity"),
+                seeAlso = listOf("pellucid", "cogent", "perspicuous")
             ),
             WordEntry(
-                word = "zealous",
-                phonetic = "/ˈzɛl.əs/",
+                word = "paradigm",
+                phonetic = "/ˈpæɹ.ə.daɪm/",
                 senses = listOf(
-                    SenseItem("adjective", "Having or showing great energy, passion, or enthusiasm in pursuit of a cause or objective.", "A zealous advocate for open-source privacy tools.", listOf("fervent", "ardent", "passionate", "devoted"), listOf("apathetic", "indifferent"))
+                    SenseItem("noun", "A typical example, pattern, or model of something; a philosophical and theoretical framework.", "A new paradigm in minimalist software design.", listOf("model", "archetype", "exemplar", "standard"))
                 ),
-                etymology = "From Late Latin zēlōsus, from Greek zēlos ('zeal, ardor').",
-                inflections = listOf("more zealous", "most zealous", "zealously", "zeal"),
-                seeAlso = listOf("fervent", "ardent", "enthusiastic")
+                etymology = "From Greek parádeigma ('pattern, example'), from paradeiknynai ('to show side by side').",
+                seeAlso = listOf("archetype", "prototype", "epitome")
             )
         )
         for (entry in seedEntries) {
@@ -636,7 +485,7 @@ class DictionaryRepository(context: Context) : SQLiteOpenHelper(context, "shunno
         return null
     }
 
-    fun getAllNotes(): List<NoteItem> {
+    fn getAllNotes(): List<NoteItem> {
         val list = mutableListOf<NoteItem>()
         readableDatabase.rawQuery("SELECT word, content, category, timestamp FROM notes ORDER BY timestamp DESC", null).use { c ->
             while (c.moveToNext()) {

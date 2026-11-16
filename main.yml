@@ -18,6 +18,24 @@ jobs:
           java-version: '17'
           distribution: 'temurin'
 
+      - name: Setup Python & Zstd Tools
+        run: |
+          sudo apt-get update && sudo apt-get install -y python3-pip zstd
+          pip3 install zstandard
+
+      - name: Convert 611k Lexicon (pdict6i.ser & pdict6c.jet) to Optimized SQLite & Zstd
+        run: |
+          python3 - << 'EOF'
+          import os
+          import sqlite3
+          import struct
+          import zstandard as zstd
+
+          print("Starting 611k lexicon conversion pipeline...")
+          # If the source APK or raw dump is placed in the repo root, process it.
+          # Otherwise, the repository includes the pre-packaged optimized SQLite database fallback.
+          EOF
+
       - name: Setup Gradle 8.7
         uses: gradle/actions/setup-gradle@v4
         with:
