@@ -31,11 +31,11 @@ Tap the link below to download and install the latest compiled APK directly on y
 * **Voice Search (`🎤`):** Look up words hands-free using built-in Android speech recognition.
 * **Quick Clear & Instant Lookup:** One-tap query clearing and keyboard search action support.
 
-### 4. Comprehensive Lexicon & Word Senses
+### 4. Comprehensive Wiktionary Lexicon (Nothing Discarded)
 * **Complete Word Entries:** Every entry provides the headword, **IPA phonetic transcription**, **parts of speech** (*noun*, *verb*, *adjective*, *adverb*), numbered definitions, and context-rich usage examples.
 * **Synonyms, Antonyms & Cross-References:** Interactive chips for **Synonyms**, **Antonyms**, **Inflected Forms**, and **"See Also"** related terms—tap any chip to jump straight to that word's definition.
 * **Etymology & Word Origins:** Dedicated origin section detailing the historical and linguistic roots of words.
-* **Offline & Hybrid Architecture:** Supports instant local SQLite caching (`shunno_full.db`) alongside online fallback lookups.
+* **Offline & Hybrid Architecture:** Supports instant local SQLite caching (`shunno_full.db`) as well as the full 64 MB offline Wiktionary database (`pdict6c.jet` & `pdict6i.ser`).
 
 ### 5. Built-In Verb Conjugator & A–Z Words Index
 * **English Verb Conjugator (`⚡`):** Generates complete conjugation tables across tenses and persons (*Present Simple*, *Past Simple*, *Continuous / Participle*, *Present Perfect*, and *Future Simple*). Verb entries also feature a direct **`Conjugate →`** shortcut.

@@ -11,12 +11,17 @@ android {
         applicationId = "com.shunno.dictionary"
         minSdk = 24
         targetSdk = 34
-        versionCode = 3
-        versionName = "2.1.0"
+        versionCode = 2
+        versionName = "2.0.0"
 
         ndk {
             abiFilters += listOf("arm64-v8a", "armeabi-v7a", "x86_64")
         }
+    }
+
+    // Do not re-compress Zstd dictionary & SQLite DB assets so mmap/streaming is instant
+    androidResources {
+        noCompress += listOf("zst", "zdict", "db")
     }
 
     buildTypes {
@@ -27,6 +32,9 @@ android {
                 getDefaultProguardFile("proguard-android-optimize.txt"),
                 "proguard-rules.pro"
             )
+        }
+        debug {
+            isMinifyEnabled = false
         }
     }
 
@@ -53,4 +61,7 @@ dependencies {
     implementation("androidx.compose.ui:ui")
     implementation("androidx.compose.material3:material3")
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.8.1")
+
+    // Option 2A: Native Zstandard (Zstd) decompression with trained dictionary support
+    implementation("com.github.luben:zstd-jni:1.5.6-4@aar")
 }

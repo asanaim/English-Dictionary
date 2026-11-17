@@ -1,2 +1,3 @@
 -keep class com.shunno.dictionary.** { *; }
--dontwarn com.shunno.dictionary.**
+-keep class com.github.luben.zstd.** { *; }
+-dontwarn com.github.luben.zstd.**

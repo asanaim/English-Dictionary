@@ -1,4 +1,4 @@
-name: Build Shunno Dictionary APK
+name: Build Shunno Dictionary (Option 2A Zstd) APK
 
 on: [push, workflow_dispatch]
 
@@ -12,6 +12,11 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
+      - name: Set up Python & Build Zstd-19 Offline SQLite Lexicon
+        run: |
+          pip install --quiet zstandard
+          python3 tools/build_zstd_lexicon.py
+
       - name: Set up JDK 17
         uses: actions/setup-java@v5
         with:
@@ -24,10 +29,10 @@ jobs:
           gradle-version: '8.7'
           cache-disabled: true
 
-      - name: Build Debug APK
+      - name: Build Debug & Release APKs
         run: gradle assembleDebug --no-daemon
 
-      - name: Prepare Release APK
+      - name: Prepare ShunnoDictionary.apk
         run: |
           mkdir -p release-apk
           cp app/build/outputs/apk/debug/app-debug.apk release-apk/ShunnoDictionary.apk
@@ -35,7 +40,7 @@ jobs:
       - name: Upload ShunnoDictionary APK Artifact
         uses: actions/upload-artifact@v4
         with:
-          name: ShunnoDictionary-APK
+          name: ShunnoDictionary-Option2A-Zstd-APK
           path: release-apk/ShunnoDictionary.apk
 
       - name: Publish 1-Click Direct Download Release
@@ -43,12 +48,12 @@ jobs:
         uses: softprops/action-gh-release@v2
         with:
           tag_name: latest
-          name: "Shunno Dictionary v2.1 (Direct 1-Click APK Download)"
+          name: "Shunno Dictionary v2.0 (Option 2A Zstd Offline Edition)"
           make_latest: true
           body: |
             ### 📲 Direct 1-Click Download for Android
-            Tap the link below to download and install **Shunno Dictionary** immediately:
-            - **[Download ShunnoDictionary.apk](https://github.com/${{ github.repository }}/releases/latest/download/ShunnoDictionary.apk)**
+            Tap the link below to download and install **Shunno Dictionary (Option 2A Zstd Edition)** immediately:
+            - **[👉 Download ShunnoDictionary.apk](https://github.com/${{ github.repository }}/releases/latest/download/ShunnoDictionary.apk)**
           files: |
             release-apk/ShunnoDictionary.apk
         env:

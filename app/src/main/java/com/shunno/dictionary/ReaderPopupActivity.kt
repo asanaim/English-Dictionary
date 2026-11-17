@@ -31,6 +31,10 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import java.util.Locale
 
+/**
+ * Floating Pop-up Dictionary Activity for E-Readers & Browsers.
+ * Keeps the underlying reader or browser 100% visible without darkening the screen!
+ */
 class ReaderPopupActivity : ComponentActivity() {
 
     private var tts: TextToSpeech? = null
@@ -39,6 +43,8 @@ class ReaderPopupActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+        // CRITICAL: Explicitly strip FLAG_DIM_BEHIND and make window background 100% transparent
+        // so the e-reader or browser page underneath stays completely bright and readable.
         window.apply {
             setBackgroundDrawable(ColorDrawable(AndroidColor.TRANSPARENT))
             clearFlags(WindowManager.LayoutParams.FLAG_DIM_BEHIND)
@@ -74,6 +80,8 @@ class ReaderPopupActivity : ComponentActivity() {
                 isLoading = false
             }
 
+            // Full-screen completely transparent touch catcher:
+            // Tapping anywhere outside the card dismisses the popup immediately back to the reader.
             Box(
                 modifier = Modifier
                     .fillMaxSize()
@@ -84,6 +92,7 @@ class ReaderPopupActivity : ComponentActivity() {
                     ) { finish() },
                 contentAlignment = Alignment.BottomCenter
             ) {
+                // Apple iOS Lookup Sheet Card floating over the un-dimmed reader page
                 Surface(
                     modifier = Modifier
                         .fillMaxWidth()
@@ -92,9 +101,9 @@ class ReaderPopupActivity : ComponentActivity() {
                         .clickable(
                             interactionSource = remember { MutableInteractionSource() },
                             indication = null
-                        ) { },
+                        ) { /* Consume taps inside the card */ },
                     shape = RoundedCornerShape(26.dp),
-                    color = Color(0xFAFFFFFF),
+                    color = Color(0xFAFFFFFF), // Translucent Apple Cupertino card surface
                     tonalElevation = 0.dp
                 ) {
                     Column(
@@ -102,6 +111,7 @@ class ReaderPopupActivity : ComponentActivity() {
                             .fillMaxWidth()
                             .padding(horizontal = 20.dp, vertical = 16.dp)
                     ) {
+                        // iOS Grabber Pill
                         Box(
                             modifier = Modifier
                                 .align(Alignment.CenterHorizontally)
@@ -111,6 +121,7 @@ class ReaderPopupActivity : ComponentActivity() {
                         )
                         Spacer(modifier = Modifier.height(12.dp))
 
+                        // Header Bar: Brand Pill + Open in Full App + Close
                         Row(
                             modifier = Modifier.fillMaxWidth(),
                             horizontalArrangement = Arrangement.SpaceBetween,

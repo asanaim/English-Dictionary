@@ -6,6 +6,7 @@
         <item name="android:windowLightStatusBar">true</item>
     </style>
 
+    <!-- Zero-Dim Transparent Reader & Browser Pop-up Theme -->
     <style name="Theme.ShunnoDictionary.ReaderPopup" parent="android:Theme.Material.Light.Dialog.NoActionBar">
         <item name="android:windowNoTitle">true</item>
         <item name="android:windowIsTranslucent">true</item>

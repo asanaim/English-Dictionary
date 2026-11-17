@@ -24,6 +24,7 @@
             </intent-filter>
         </activity>
 
+        <!-- Zero-Dim Pop-up Mode for E-Readers & Browsers -->
         <activity
             android:name=".ReaderPopupActivity"
             android:label="Shunno Dictionary"
